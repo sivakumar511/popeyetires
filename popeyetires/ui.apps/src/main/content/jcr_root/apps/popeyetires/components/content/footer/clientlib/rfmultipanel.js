@@ -9,6 +9,7 @@ RfClientLib.RfMultiPanel = CQ.Ext.extend(CQ.Ext.Panel, {
     },
 
     initComponent: function () {
+    	console.log('init component');
         RfClientLib.RfMultiPanel.superclass.initComponent.call(this);
 
         this.panelValue = new CQ.Ext.form.Hidden({
@@ -29,6 +30,7 @@ RfClientLib.RfMultiPanel = CQ.Ext.extend(CQ.Ext.Panel, {
     },
 
     getValue: function () {
+    	console.log('get method custom component');
         var pData = {};
 
         this.items.each(function(i){
@@ -43,6 +45,7 @@ RfClientLib.RfMultiPanel = CQ.Ext.extend(CQ.Ext.Panel, {
     },
 
     setValue: function (value) {
+    	console.log('set method component');
         this.panelValue.setValue(value);
 
         var pData = JSON.parse(value);
@@ -65,6 +68,7 @@ RfClientLib.RfMultiPanel = CQ.Ext.extend(CQ.Ext.Panel, {
     },
 
     getName: function(){
+    	console.log('getName method custom component');
         return this.name;
     }
 });

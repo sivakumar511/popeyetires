@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
     jcr:primaryType="cq:Dialog"
-    title="dialog"
+    title="Footer Configuration"
+    width="700"
     xtype="dialog">
     <items
         jcr:primaryType="cq:Widget"
+        width="1000"
         xtype="tabpanel">
         <items jcr:primaryType="cq:WidgetCollection">
             <tab1
@@ -19,25 +21,29 @@
                         xtype="multifield">
                         <fieldConfig
                             jcr:primaryType="cq:Widget"
-                            border="{Boolean}true"
-                            hideLabel="{Boolean}true"
+                            border="true"
+                            hideLabel="true"
                             layout="form"
+                            padding="10px"
+                            width="1000"
                             xtype="rfmultipanel">
-                            <linktext
-                                jcr:primaryType="cq:Widget"
-                                dName="./linktext"
-                                fieldLabel="Link Text"
-                                xtype="textfield"/>
-                            <linkurl
-                                jcr:primaryType="cq:Widget"
-                                dName="./linkurl"
-                                fieldLabel="Link URL"
-                                xtype="pathfield"/>
-                            <newtab
-                                jcr:primaryType="cq:Widget"
-                                dName="./newtab"
-                                fieldLabel="Open in newtab?"
-                                xtype="checkbox"/>
+                            <items jcr:primaryType="cq:WidgetCollection">
+                                <linktext
+                                    jcr:primaryType="cq:Widget"
+                                    dName="linktext"
+                                    fieldLabel="Link Text"
+                                    xtype="textfield"/>
+                                <linkurl
+                                    jcr:primaryType="cq:Widget"
+                                    dName="linkurl"
+                                    fieldLabel="Link URL"
+                                    xtype="pathfield"/>
+                                <newTab
+                                    jcr:primaryType="cq:Widget"
+                                    dName="newTab"
+                                    fieldLabel="Open in a new  Tab ?"
+                                    xtype="checkbox"/>
+                            </items>
                         </fieldConfig>
                     </tiresByVehicle>
                 </items>
@@ -46,107 +52,163 @@
                 jcr:primaryType="cq:Panel"
                 title="TIRES BY TYPE">
                 <items jcr:primaryType="cq:WidgetCollection">
-	                <tiresByType
-	                        jcr:primaryType="cq:Widget"
-	                        hideLabel="false"
-	                        name="./tiresbytype"
-	                        title="Tires By Type"
-	                        xtype="multifield">
-	                        <fieldConfig
-	                            jcr:primaryType="cq:Widget"
-	                            border="{Boolean}true"
-	                            hideLabel="{Boolean}true"
-	                            layout="form"
-	                            xtype="rfmultipanel">
-	                            <linktext
-	                                jcr:primaryType="cq:Widget"
-	                                dName="./linktext"
-	                                fieldLabel="Link Text"
-	                                xtype="textfield"/>
-	                            <linkurl
-	                                jcr:primaryType="cq:Widget"
-	                                dName="./linkurl"
-	                                fieldLabel="Link URL"
-	                                xtype="pathfield"/>
-	                            <newtab
-	                                jcr:primaryType="cq:Widget"
-	                                dName="./newtab"
-	                                fieldLabel="Open in newtab?"
-	                                xtype="checkbox"/>
-	                        </fieldConfig>
-	                    </tiresByType>
-                    </items>
+                    <tiresByType
+                        jcr:primaryType="cq:Widget"
+                        hideLabel="false"
+                        name="./tiresbytype"
+                        title="Tires By Type"
+                        xtype="multifield">
+                        <fieldConfig
+                            jcr:primaryType="cq:Widget"
+                            border="true"
+                            hideLabel="true"
+                            layout="form"
+                            padding="10px"
+                            width="1000"
+                            xtype="rfmultipanel">
+                            <items jcr:primaryType="cq:WidgetCollection">
+                                <linktext
+                                    jcr:primaryType="cq:Widget"
+                                    dName="linktext"
+                                    fieldLabel="Link Text"
+                                    xtype="textfield"/>
+                                <linkurl
+                                    jcr:primaryType="cq:Widget"
+                                    dName="linkurl"
+                                    fieldLabel="Link URL"
+                                    xtype="pathfield"/>
+                                <newTab
+                                    jcr:primaryType="cq:Widget"
+                                    dName="newTab"
+                                    fieldLabel="Open in a new  Tab ?"
+                                    xtype="checkbox"/>
+                            </items>
+                        </fieldConfig>
+                    </tiresByType>
+                </items>
             </tab2>
             <tab3
                 jcr:primaryType="cq:Panel"
                 title="SUPPORT">
                 <items jcr:primaryType="cq:WidgetCollection">
-                	<support
-	                        jcr:primaryType="cq:Widget"
-	                        hideLabel="false"
-	                        name="./support"
-	                        title="Suppport"
-	                        xtype="multifield">
-	                        <fieldConfig
-	                            jcr:primaryType="cq:Widget"
-	                            border="{Boolean}true"
-	                            hideLabel="{Boolean}true"
-	                            layout="form"
-	                            xtype="rfmultipanel">
-	                            <linktext
-	                                jcr:primaryType="cq:Widget"
-	                                dName="./linktext"
-	                                fieldLabel="Link Text"
-	                                xtype="textfield"/>
-	                            <linkurl
-	                                jcr:primaryType="cq:Widget"
-	                                dName="./linkurl"
-	                                fieldLabel="Link URL"
-	                                xtype="pathfield"/>
-	                            <newtab
-	                                jcr:primaryType="cq:Widget"
-	                                dName="./newtab"
-	                                fieldLabel="Open in newtab?"
-	                                xtype="checkbox"/>
-	                        </fieldConfig>
-	                    </support>
-                   </items>
+                    <support
+                        jcr:primaryType="cq:Widget"
+                        hideLabel="false"
+                        name="./support"
+                        title="Support"
+                        xtype="multifield">
+                        <fieldConfig
+                            jcr:primaryType="cq:Widget"
+                            border="true"
+                            hideLabel="true"
+                            layout="form"
+                            padding="10px"
+                            width="1000"
+                            xtype="rfmultipanel">
+                            <items jcr:primaryType="cq:WidgetCollection">
+                                <linktext
+                                    jcr:primaryType="cq:Widget"
+                                    dName="linktext"
+                                    fieldLabel="Link Text"
+                                    xtype="textfield"/>
+                                <linkurl
+                                    jcr:primaryType="cq:Widget"
+                                    dName="linkurl"
+                                    fieldLabel="Link URL"
+                                    xtype="pathfield"/>
+                                <newTab
+                                    jcr:primaryType="cq:Widget"
+                                    dName="newTab"
+                                    fieldLabel="Open in a new  Tab ?"
+                                    xtype="checkbox"/>
+                            </items>
+                        </fieldConfig>
+                    </support>
+                </items>
             </tab3>
             <tab4
                 jcr:primaryType="cq:Panel"
                 title="COMPANY INFO">
                 <items jcr:primaryType="cq:WidgetCollection">
-                	<companyInfo
-	                        jcr:primaryType="cq:Widget"
-	                        hideLabel="false"
-	                        name="./companyInfo"
-	                        title="Company Info"
-	                        xtype="multifield">
-	                        <fieldConfig
-	                            jcr:primaryType="cq:Widget"
-	                            border="{Boolean}true"
-	                            hideLabel="{Boolean}true"
-	                            layout="form"
-	                            xtype="rfmultipanel">
-	                            <linktext
-	                                jcr:primaryType="cq:Widget"
-	                                dName="./linktext"
-	                                fieldLabel="Link Text"
-	                                xtype="textfield"/>
-	                            <linkurl
-	                                jcr:primaryType="cq:Widget"
-	                                dName="./linkurl"
-	                                fieldLabel="Link URL"
-	                                xtype="pathfield"/>
-	                            <newtab
-	                                jcr:primaryType="cq:Widget"
-	                                dName="./newtab"
-	                                fieldLabel="Open in newtab?"
-	                                xtype="checkbox"/>
-	                        </fieldConfig>
-	                    </companyInfo>
-                   </items>
+                    <companyInfo
+                        jcr:primaryType="cq:Widget"
+                        hideLabel="false"
+                        name="./companyinfo"
+                        title="Company Info"
+                        xtype="multifield">
+                        <fieldConfig
+                            jcr:primaryType="cq:Widget"
+                            border="true"
+                            hideLabel="true"
+                            layout="form"
+                            padding="10px"
+                            width="1000"
+                            xtype="rfmultipanel">
+                            <items jcr:primaryType="cq:WidgetCollection">
+                                <linktext
+                                    jcr:primaryType="cq:Widget"
+                                    dName="linktext"
+                                    fieldLabel="Link Text"
+                                    xtype="textfield"/>
+                                <linkurl
+                                    jcr:primaryType="cq:Widget"
+                                    dName="linkurl"
+                                    fieldLabel="Link URL"
+                                    xtype="pathfield"/>
+                                <newTab
+                                    jcr:primaryType="cq:Widget"
+                                    dName="newTab"
+                                    fieldLabel="Open in a new  Tab ?"
+                                    xtype="checkbox"/>
+                            </items>
+                        </fieldConfig>
+                    </companyInfo>
+                </items>
             </tab4>
+            <tab5
+                jcr:primaryType="cq:Panel"
+                title="TIRES INFO">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <tiresInfo
+                        jcr:primaryType="cq:Widget"
+                        hideLabel="false"
+                        name="./tiresinfo"
+                        title="Tires Information"
+                        xtype="multifield">
+                        <fieldConfig
+                            jcr:primaryType="cq:Widget"
+                            border="true"
+                            hideLabel="true"
+                            layout="form"
+                            padding="10px"
+                            width="1000"
+                            xtype="rfmultipanel">
+                            <items jcr:primaryType="cq:WidgetCollection">
+                                <title
+                                    jcr:primaryType="cq:Widget"
+                                    fieldLabel="Title"
+                                    name="./title"
+                                    xtype="textfield"/>
+                                <description
+                                    jcr:primaryType="cq:Widget"
+                                    name="./description"
+                                    xtype="textfield"/>
+                                <imageSource
+                                    jcr:primaryType="cq:Widget"
+                                    allowUpload="{Boolean}false"
+                                    ddGroups="[media]"
+                                    fieldLabel="Image:"
+                                    fileNameParameter="./imageSourcefileName"
+                                    fileReferenceParameter="./imageSource"
+                                    mimeTypes="*.jpg;*.png"
+                                    name="./imageSourcename"
+                                    uploadUrl="/tmp/upload/*"
+                                    xtype="smartfile"/>
+                            </items>
+                        </fieldConfig>
+                    </tiresInfo>
+                </items>
+            </tab5>
         </items>
     </items>
 </jcr:root>
