@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:language="en-us"
+    jcr:mixinTypes="[mix:language]"
+    jcr:primaryType="nt:unstructured">
+    <LANGUAGE
+        jcr:mixinTypes="[sling:Message]"
+        jcr:primaryType="nt:folder"
+        sling:message="EN-US LANGUAGE"/>
+    <performanceInformation
+        sling:key="Performance Information"
+        jcr:mixinTypes="[sling:Message]"
+        jcr:primaryType="sling:MessageEntry"
+        sling:message="Performance Information"/>
+    <dryPerformance
+        sling:key="dryPerformance"
+        jcr:mixinTypes="[sling:Message]"
+        jcr:primaryType="sling:MessageEntry"
+        sling:message="Dry Performance"/>
+    <fuelEfficiency
+        sling:key="fuelEfficiency"
+        jcr:mixinTypes="[sling:Message]"
+        jcr:primaryType="sling:MessageEntry"
+        sling:message="Fuel Efficiency"/>
+    <icePerformance
+        sling:key="icePerformance"
+        jcr:mixinTypes="[sling:Message]"
+        jcr:primaryType="sling:MessageEntry"
+        sling:message="Ice Performance"/>
+    <offRoadPerformance
+        sling:key="offRoadPerformance"
+        jcr:mixinTypes="[sling:Message]"
+        jcr:primaryType="sling:MessageEntry"
+        sling:message="Off Road"/>
+    <quietRide
+        sling:key="quietRide"
+        jcr:mixinTypes="[sling:Message]"
+        jcr:primaryType="sling:MessageEntry"
+        sling:message="Quiet Ride"/>
+    <rideComfort
+        sling:key="rideComfort"
+        jcr:mixinTypes="[sling:Message]"
+        jcr:primaryType="sling:MessageEntry"
+        sling:message="Ride Comfort"/>
+    <treadLife
+        sling:key="wearLife"
+        jcr:mixinTypes="[sling:Message]"
+        jcr:primaryType="sling:MessageEntry"
+        sling:message="Tread Life"/>
+    <wetPerformance
+        sling:key="wetPerformance"
+        jcr:mixinTypes="[sling:Message]"
+        jcr:primaryType="sling:MessageEntry"
+        sling:message="Wet Performance"/>
+    <winterPerformance
+        sling:key="winterPerformance"
+        jcr:mixinTypes="[sling:Message]"
+        jcr:primaryType="sling:MessageEntry"
+        sling:message="Winter Performance"/>
+    <snowPerformance
+        sling:key="snowPerformance"
+        jcr:mixinTypes="[sling:Message]"
+        jcr:primaryType="sling:MessageEntry"
+        sling:message="Snow Performance"/>
+    <features
+        sling:key="Features"
+        jcr:mixinTypes="[sling:Message]"
+        jcr:primaryType="sling:MessageEntry"
+        sling:message="Features"/>
+    <warrantyMiles
+        sling:key="Warranty Miles"
+        jcr:mixinTypes="[sling:Message]"
+        jcr:primaryType="sling:MessageEntry"
+        sling:message="Warranty Miles"/>
+    <startingAt
+        sling:key="Starting at"
+        jcr:mixinTypes="[sling:Message]"
+        jcr:primaryType="sling:MessageEntry"
+        sling:message="Starting at"/>
+    <tpmsDetail
+        sling:key="tpmsDetail"
+        jcr:mixinTypes="[sling:Message]"
+        jcr:primaryType="sling:MessageEntry"
+        sling:message="A Tire Pressure Monitoring System (TPMS) is an automated system that monitors the air pressure in a vehicle's tires. When air pressure in one or more tires drops 25 percent or more below the correct pressure, a warning indicator alerts the driver. TPMS typically delivers these alerts to the driver through one of two types of warning lights on the dashboard. If you are unaware if your vehicle is equipped with a TPMS, check your vehicle’s owners manual."/>
+    <categoty-performance
+        sling:key="Performance"
+        jcr:mixinTypes="[sling:Message]"
+        jcr:primaryType="sling:MessageEntry"
+        sling:message="Performance"/>
+        
+</jcr:root>

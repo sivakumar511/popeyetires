@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:language="fr-ca"
+    jcr:mixinTypes="[mix:language]"
+    jcr:primaryType="nt:unstructured">
+    <LANGUAGE
+        jcr:mixinTypes="[sling:Message]"
+        jcr:primaryType="nt:folder"
+        sling:message="FR-ca LANGUAGE"/>
+    <performanceInformation
+        sling:key="Performance Information"
+        jcr:mixinTypes="[sling:Message]"
+        jcr:primaryType="sling:MessageEntry"
+        sling:message="Performance Information"/>
+    <dryPerformance
+        sling:key="dryPerformance"
+        jcr:mixinTypes="[sling:Message]"
+        jcr:primaryType="sling:MessageEntry"
+        sling:message="Performance sur chaussée sèche"/>
+    <fuelEfficiency
+        sling:key="fuelEfficiency"
+        jcr:mixinTypes="[sling:Message]"
+        jcr:primaryType="sling:MessageEntry"
+        sling:message="Efficacité énergétique"/>
+    <icePerformance
+        sling:key="icePerformance"
+        jcr:mixinTypes="[sling:Message]"
+        jcr:primaryType="sling:MessageEntry"
+        sling:message="Performance sur glace"/>
+    <offRoadPerformance
+        sling:key="offRoadPerformance"
+        jcr:mixinTypes="[sling:Message]"
+        jcr:primaryType="sling:MessageEntry"
+        sling:message="Performance hors route"/>
+    <quietRide
+        sling:key="quietRide"
+        jcr:mixinTypes="[sling:Message]"
+        jcr:primaryType="sling:MessageEntry"
+        sling:message="Roulement silencieux"/>
+    <rideComfort
+        sling:key="rideComfort"
+        jcr:mixinTypes="[sling:Message]"
+        jcr:primaryType="sling:MessageEntry"
+        sling:message="Confort de Roulement"/>
+    <treadLife
+        sling:key="wearLife"
+        jcr:mixinTypes="[sling:Message]"
+        jcr:primaryType="sling:MessageEntry"
+        sling:message="Résistance à l'usure"/>
+    <wetPerformance
+        sling:key="wetPerformance"
+        jcr:mixinTypes="[sling:Message]"
+        jcr:primaryType="sling:MessageEntry"
+        sling:message="Performance sur chaussée mouillée"/>
+    <winterPerformance
+        sling:key="winterPerformance"
+        jcr:mixinTypes="[sling:Message]"
+        jcr:primaryType="sling:MessageEntry"
+        sling:message="Performance en hiver"/>
+    <snowPerformance
+        sling:key="snowPerformance"
+        jcr:mixinTypes="[sling:Message]"
+        jcr:primaryType="sling:MessageEntry"
+        sling:message="Performance sur Neige"/>
+    <features
+        sling:key="Features"
+        jcr:mixinTypes="[sling:Message]"
+        jcr:primaryType="sling:MessageEntry"
+        sling:message="Features"/>
+    <winter
+        jcr:primaryType="sling:MessageEntry"
+        sling:key="Winter"
+        sling:message="Hiver"/>
+    <all_season
+        jcr:primaryType="sling:MessageEntry"
+        sling:key="All Season"
+        sling:message="Toutes-saisons"/>
+    <performance
+        jcr:primaryType="sling:MessageEntry"
+        sling:key="Performance"
+        sling:message="Performance"/>
+    <touring
+        jcr:primaryType="sling:MessageEntry"
+        sling:key="Touring"
+        sling:message="Tourisme"/>
+    <passenger
+        jcr:primaryType="sling:MessageEntry"
+        sling:key="Passenger"
+        sling:message="Randonnée"/>
+    <summer
+        jcr:primaryType="sling:MessageEntry"
+        sling:key="Summer"
+        sling:message="Été"/>
+    <light_truck
+        jcr:primaryType="sling:MessageEntry"
+        sling:key="Light/Medium Truck"
+        sling:message="Camionnette/camion mi-lourd"/>
+       
+</jcr:root>
