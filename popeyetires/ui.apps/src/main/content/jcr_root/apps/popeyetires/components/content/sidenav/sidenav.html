@@ -1,0 +1,33 @@
+<div id="header">
+	<div data-sly-use.sidenav="${'SideNavWcmUse'}">
+		<!-- Logo -->
+		<div id="logo">
+			<span class="image avatar48"><img
+				src="/etc/designs/popeyetires/images/logo.jpg" alt="" /></span>
+			<h1 id="title">Popeye Tires</h1>
+		</div>
+		<!-- Nav -->
+		<nav id="nav">
+
+			 <ul data-sly-list.keyName="${sidenav.getItems}" class="items__list component__flexie">
+      <li class="items__list__item component__flex-item"><a href="${sidenav.getItems[keyName]}"> ${keyName}</a><span>/</span></li>
+     
+    </ul>
+    
+    
+<!--     <ul data-sly-list.keyName="${sidenav.getItems}">
+        <li>KEY: ${keyName}, VALUE: ${sidenav.getItems[keyName]}</li>
+    </ul> -->
+		</nav>
+	</div>
+	<div class="bottom">
+		<!-- Social Icons -->
+		<ul class="icons">
+			<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+			<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+			<li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
+			<li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
+			<li><a href="#" class="icon fa-envelope"><span class="label">Email</span></a></li>
+		</ul>
+	</div>
+</div>
