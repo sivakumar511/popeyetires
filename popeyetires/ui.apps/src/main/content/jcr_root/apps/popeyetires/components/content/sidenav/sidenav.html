@@ -1,23 +1,20 @@
-<div id="header">
-	<div data-sly-use.sidenav="${'SideNavWcmUse'}">
+<div id="header" data-sly-use.sidenav="${'SideNavWcmUse'}" data-sly-unwrap="data-sly-unwrap">
+	<div class="top">
 		<!-- Logo -->
 		<div id="logo">
-			<span class="image avatar48"><img
-				src="/etc/designs/popeyetires/images/logo.jpg" alt="" /></span>
+			<span class="image avatar48"><img src="/etc/designs/popeyetires/images/logo.jpg" alt="" /></span>
 			<h1 id="title">Popeye Tires</h1>
 		</div>
 		<!-- Nav -->
 		<nav id="nav">
-
-			 <ul data-sly-list.keyName="${sidenav.getItems}" class="items__list component__flexie">
-      <li class="items__list__item component__flex-item"><a href="${sidenav.getItems[keyName]}"> ${keyName}</a><span>/</span></li>
-     
-    </ul>
-    
-    
-<!--     <ul data-sly-list.keyName="${sidenav.getItems}">
-        <li>KEY: ${keyName}, VALUE: ${sidenav.getItems[keyName]}</li>
-    </ul> -->
+		
+		 <section data-component="sidenav" class="sidenav component__flexie">
+		  <ul data-sly-list.keyName="${sidenav.getItems}" class="sidenav__list component__flexie">
+		   ${sidenav.getItems[keyName]}
+		    <li class="sidenav__list__item component__flex-item"><a src="${sidenav.getItems[keyName]}"> ${keyName}</a><span>/</span></li>
+		    </p>
+		  </ul>
+		</section>
 		</nav>
 	</div>
 	<div class="bottom">

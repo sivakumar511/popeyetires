@@ -43,6 +43,7 @@ public class SideNavWcmUse extends WCMUse {
        logger.info("itemJson :" + itemJson.getString("name"));
        items.put("name",itemJson.getString("name"));
        items.put("url",itemJson.getString("url"));
+       items.put("imageSource",itemJson.getString("imageSource"));
       }
     logger.info("The elements :" + values.length);
 
