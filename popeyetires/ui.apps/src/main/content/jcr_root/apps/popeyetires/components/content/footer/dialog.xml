@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Dialog"
+    title="dialog"
+    xtype="dialog">
+    <items
+        jcr:primaryType="cq:Widget"
+        xtype="tabpanel">
+        <items jcr:primaryType="cq:WidgetCollection">
+            <tab1
+                jcr:primaryType="cq:Panel"
+                title="TIRES BY VEHICLE">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <tiresbyvehicle
+                        jcr:primaryType="cq:Widget"
+                        hideLabel="false"
+                        name="./tiresbyvehicle"
+                        title="Tires By Vehicle"
+                        xtype="multifield">
+                        <fieldConfig
+                            jcr:primaryType="cq:Widget"
+                            border="{Boolean}true"
+                            hideLabel="{Boolean}true"
+                            layout="form"
+                            xtype="rfmultipanel">
+                            <linktext
+                                jcr:primaryType="cq:Widget"
+                                dName="./linktext"
+                                fieldLabel="Link Text"
+                                xtype="textfield"/>
+                            <linkurl
+                                jcr:primaryType="cq:Widget"
+                                dName="./linkurl"
+                                fieldLabel="Link URL"
+                                xtype="pathfield"/>
+                            <newtab
+                                jcr:primaryType="cq:Widget"
+                                dName="./newtab"
+                                fieldLabel="Open in newtab?"
+                                xtype="checkbox"/>
+                        </fieldConfig>
+                    </tiresbyvehicle>
+                </items>
+            </tab1>
+            <tab2
+                jcr:primaryType="cq:Panel"
+                title="TIRES BY TYPE">
+                <items jcr:primaryType="cq:WidgetCollection"/>
+            </tab2>
+            <tab3
+                jcr:primaryType="cq:Panel"
+                title="SUPPORT">
+                <items jcr:primaryType="cq:WidgetCollection"/>
+            </tab3>
+            <tab4
+                jcr:primaryType="cq:Panel"
+                title="COMPANY INFO">
+                <items jcr:primaryType="cq:WidgetCollection"/>
+            </tab4>
+        </items>
+    </items>
+</jcr:root>
