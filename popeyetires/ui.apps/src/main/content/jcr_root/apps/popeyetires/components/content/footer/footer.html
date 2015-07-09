@@ -1,1 +1,35 @@
 <h1>This is Footer</h1>
+<div data-sly-use.footerMCMUse="${'com.popeyetires.popeyetires.core.filters.FooterWCMUse'}">
+    <p>Inside FooterWCMUse</p>
+    <h3>Tires by Vehicle</h3>
+    <div data-sly-list="${footerMCMUse.tiresByVehicles}" >
+    	<div>
+    		<a href="${item.linkUrl}" target="${item.newTab ? '_blank' : '_self'}">${item.linkText}</a>
+    	</div>
+    </div>
+   
+    <h3>Tires by Type</h3>
+    <div data-sly-list="${footerMCMUse.tiresByType}" >
+    	<div>
+    		<a href="${item.linkUrl}" target="${item.newTab ? '_blank' : '_self'}">${item.linkText}</a>
+    	</div>
+    </div>
+    
+    <h3>Support</h3>
+    <div data-sly-list="${footerMCMUse.support}" >
+    	<div>
+    		<a href="${item.linkUrl}" target="${item.newTab ? '_blank' : '_self'}">${item.linkText}</a>
+    	</div>
+    </div>
+    
+    <h3>Company Info & History</h3>
+    <div data-sly-list="${footerMCMUse.companyInfo}" >
+    	<div>
+    		<a href="${item.linkUrl}" target="${item.newTab ? '_blank' : '_self'}">${item.linkText}</a>
+    	</div>
+    </div>
+    
+    
+    </div>
+    
+   
