@@ -1,39 +1,38 @@
+<div data-sly-use.footerMCMUse="${'com.popeyetires.popeyetires.core.filters.FooterWCMUse'}" data-sly-unwrap>
+	<p><b>Tires by Vehicle</b></p>
+	<div data-sly-list="${footerMCMUse.tiresByVehicles}">
+		<div>
+			<a href="${item.linkUrl}"
+				target="${item.newTab ? '_blank' : '_self'}">${item.linkText}</a>
+		</div>
+	</div>
 
-<h1>This is Footer</h1>
-<div data-sly-use.footerMCMUse="${'com.popeyetires.popeyetires.core.filters.FooterWCMUse'}">
-    <p>Inside FooterWCMUse</p>
-    <h3>Tires by Vehicle</h3>
-    <div data-sly-list="${footerMCMUse.tiresByVehicles}" >
-    	<div>
-    		<a href="${item.linkUrl}" target="${item.newTab ? '_blank' : '_self'}">${item.linkText}</a>
-    	</div>
-    </div>
-   
-    <h3>Tires by Type</h3>
-    <div data-sly-list="${footerMCMUse.tiresByType}" >
-    	<div>
-    		<a href="${item.linkUrl}" target="${item.newTab ? '_blank' : '_self'}">${item.linkText}</a>
-    	</div>
-    </div>
-    
-    <h3>Support</h3>
-    <div data-sly-list="${footerMCMUse.support}" >
-    	<div>
-    		<a href="${item.linkUrl}" target="${item.newTab ? '_blank' : '_self'}">${item.linkText}</a>
-    	</div>
-    </div>
-    
-    <h3>Company Info & History</h3>
-    <div data-sly-list="${footerMCMUse.companyInfo}" >
-    	<div>
-    		<a href="${item.linkUrl}" target="${item.newTab ? '_blank' : '_self'}">${item.linkText}</a>
-    	</div>
-    </div>
-    
-    
-    </div>
-    
-   
+	<p><b>Tires by Type</b></p>
+	<div data-sly-list="${footerMCMUse.tiresByType}">
+		<div>
+			<a href="${item.linkUrl}"
+				target="${item.newTab ? '_blank' : '_self'}">${item.linkText}</a>
+		</div>
+	</div>
+
+	<p><b>Support</b></p>
+	<div data-sly-list="${footerMCMUse.support}">
+		<div>
+			<a href="${item.linkUrl}"
+				target="${item.newTab ? '_blank' : '_self'}">${item.linkText}</a>
+		</div>
+	</div>
+
+	<p><b>Company Info &amp; History</b></p>
+	<div data-sly-list="${footerMCMUse.companyInfo}">
+		<div>
+			<a href="${item.linkUrl}"
+				target="${item.newTab ? '_blank' : '_self'}">${item.linkText}</a>
+		</div>
+	</div>
+</div>
+
+
 
 <div class="bottom">
 	<!-- Social Icons -->
@@ -45,7 +44,10 @@
 		<li><a href="#" class="icon fa-envelope"><span class="label">Email</span></a></li>
 	</ul>
 </div>
+<ul class="copyright">
+	<li>&copy; 2015. Popeye Tires Inc.</li>
+</ul>
 <div class="bottom-logo">
-	<img src="/content/dam/popeyetires/bridgestone_bottom_logo.png" alt="Bridgestone"/>
+	<img src="/content/dam/popeyetires/bridgestone_bottom_logo.png" alt="Bridgestone" />
 </div>
 
