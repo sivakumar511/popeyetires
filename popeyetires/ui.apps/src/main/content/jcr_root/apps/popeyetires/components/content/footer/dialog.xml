@@ -91,6 +91,11 @@
                 jcr:primaryType="cq:Panel"
                 title="SUPPORT">
                 <items jcr:primaryType="cq:WidgetCollection">
+                	<sampletext
+                    	jcr:primaryType="cq:Widget"
+                        dName="sampletext"
+                        fieldLabel="Sample Text"
+                        xtype="textfield"/>
                     <support
                         jcr:primaryType="cq:Widget"
                         hideLabel="false"
@@ -191,6 +196,7 @@
                                     xtype="textfield"/>
                                 <description
                                     jcr:primaryType="cq:Widget"
+                                    fieldLabel="Description"
                                     name="./description"
                                     xtype="textfield"/>
                                 <imageSource
