@@ -3,16 +3,9 @@
     jcr:description="Template with focus on content."
     jcr:primaryType="cq:Template"
     jcr:title="popeyetires Content Page"
-    allowedPaths="[/content/popeyetires/.+]"
+    allowedPaths="[/content(/.*)?]"
     ranking="{Long}100">
-    <jcr:content
+     <jcr:content
         jcr:primaryType="cq:PageContent"
-        sling:resourceType="popeyetires/components/structure/page">
-        
-        <menu
-            jcr:primaryType="nt:unstructured"
-            sling:resourceType="popeyetires/components/content/menu"/>
-        
-        
-    </jcr:content>
+        sling:resourceType="popeyetires/page/standard"/>
 </jcr:root>
