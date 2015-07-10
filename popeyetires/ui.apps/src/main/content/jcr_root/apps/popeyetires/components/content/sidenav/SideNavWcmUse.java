@@ -10,11 +10,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.adobe.cq.sightly.WCMUse;
+import com.popeyetires.popeyetires.core.models.SideNav;
 
 public class SideNavWcmUse extends WCMUse {
 
  private final Logger logger = LoggerFactory.getLogger(SideNavWcmUse.class);
- Map<String,String> items = null;
+ List<SideNav> navigations = null;
  
 
  @Override
@@ -22,6 +23,7 @@ public class SideNavWcmUse extends WCMUse {
   logger.info("in actiave");
   try {
    Property prop = null;
+   SideNav sidenav = null;
    Node currentNode = getResource().adaptTo(Node.class);
    if (currentNode.hasProperty("map")) {
     logger.info("Node has map");
@@ -36,16 +38,18 @@ public class SideNavWcmUse extends WCMUse {
      values = new Value[1];
      values[0] = prop.getValue();
     }
-     items = new HashMap<String,String>();
+    navigations = new ArrayList<SideNav>();
+     
       for (Value val : values) {
+    	  sidenav = new SideNav();
        logger.info("value :" + val);
        itemJson = new JSONObject(val.getString());
        logger.info("itemJson :" + itemJson.getString("name"));
-       items.put("name",itemJson.getString("name"));
-       items.put("url",itemJson.getString("url"));
-       items.put("imageSource",itemJson.getString("imageSource"));
+       sidenav.setName(itemJson.getString("name"));
+       sidenav.setUrl(itemJson.getString("url"));
+       navigations.add(sidenav);
       }
-    logger.info("The elements :" + values.length);
+    logger.info("The elements :" + values.length + "size" + navigations.size());
 
    }
    
@@ -56,7 +60,7 @@ public class SideNavWcmUse extends WCMUse {
 
  }
  
- public Map<String,String> getItems() {
-  return items;
+ public List<SideNav> getNavigations() {
+  return navigations;
  }
 }

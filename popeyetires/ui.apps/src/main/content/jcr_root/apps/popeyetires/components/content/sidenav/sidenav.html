@@ -1,21 +1,19 @@
 <div id="header" data-sly-use.sidenav="${'SideNavWcmUse'}" data-sly-unwrap="data-sly-unwrap">
-	<div class="top">
+	<div class="top" >
 		<!-- Logo -->
 		<div id="logo">
 			<span class="image avatar48"><img src="/etc/designs/popeyetires/images/logo.jpg" alt="" /></span>
 			<h1 id="title">Popeye Tires</h1>
 		</div>
 		<!-- Nav -->
+		<div data-sly-list="${sidenav.navigations}" style="">
 		<nav id="nav">
-		
-		 <section data-component="sidenav" class="sidenav component__flexie">
-		  <ul data-sly-list.keyName="${sidenav.getItems}" class="sidenav__list component__flexie">
-		   ${sidenav.getItems[keyName]}
-		    <li class="sidenav__list__item component__flex-item"><a src="${sidenav.getItems[keyName]}"> ${keyName}</a><span>/</span></li>
-		    </p>
+		  <ul>
+		    <h3><li><a href="${item.url}" id="top-link" class="skel-layers-ignoreHref"><span class="icon fa-home">${item.name}</span></a></li></h3>
 		  </ul>
-		</section>
+
 		</nav>
+		</div>
 	</div>
 	<div class="bottom">
 		<!-- Social Icons -->
