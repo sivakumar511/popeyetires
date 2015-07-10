@@ -16,10 +16,13 @@ import com.popeyetires.popeyetires.core.models.Footer;
 
 public class FooterWCMUse extends WCMUse {
 	private final Logger logger = LoggerFactory.getLogger(FooterWCMUse.class);
-
+	
 	private List<Footer> tiresByVehicles;
 	private List<Footer> tiresByType;
 	private List<Footer> support;
+	private List<Footer> companyInfo;
+	private String locale;
+	
 
 	public List<Footer> getTiresByType() {
 		return tiresByType;
@@ -33,9 +36,6 @@ public class FooterWCMUse extends WCMUse {
 		return companyInfo;
 	}
 
-	private List<Footer> companyInfo;
-	private String sampleText;
-
 	public List<Footer> getTiresByVehicles() {
 		return tiresByVehicles;
 	}
@@ -44,6 +44,14 @@ public class FooterWCMUse extends WCMUse {
 	public void activate() throws Exception {
 		System.out.println("Inside activate method FooterWCMUse Component");
 		logger.info("Inside activate method FooterWCMUse Component");
+		
+		String currentPath = getCurrentPage().getPath();
+		if(currentPath.contains("/en/")) {
+			this.locale = "en-us"; 
+		} else if(currentPath.contains("/fr/")) {
+			this.locale = "fr-ca";
+		}
+		
 		try {
 			Property prop = null;
 			Footer footer = null;
@@ -190,13 +198,12 @@ public class FooterWCMUse extends WCMUse {
 			}
 
 			logger.info(tiresByVehicles.toString());
-			sampleText = "Trimurthy";
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
 	}
 
-	public String getSampleText() {
-		return sampleText;
+	public String getLocale() {
+		return locale;
 	}
 }

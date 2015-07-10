@@ -1,5 +1,5 @@
 <div data-sly-use.footerMCMUse="${'com.popeyetires.popeyetires.core.filters.FooterWCMUse'}" data-sly-unwrap>
-	<p><b>Tires by Vehicle</b></p>
+	<p><b>${'tiresbyvehicle' @ i18n, locale=footerMCMUse.locale}</b></p>
 	<div data-sly-list="${footerMCMUse.tiresByVehicles}">
 		<div>
 			<a href="${item.linkUrl}"
@@ -7,7 +7,7 @@
 		</div>
 	</div>
 
-	<p><b>Tires by Type</b></p>
+	<p><b>${'tiresbytype' @ i18n, locale=footerMCMUse.locale}</b></p>
 	<div data-sly-list="${footerMCMUse.tiresByType}">
 		<div>
 			<a href="${item.linkUrl}"
@@ -15,7 +15,7 @@
 		</div>
 	</div>
 
-	<p><b>Support</b></p>
+	<p><b>${'support' @ i18n, locale=footerMCMUse.locale}</b></p>
 	<div data-sly-list="${footerMCMUse.support}">
 		<div>
 			<a href="${item.linkUrl}"
@@ -23,7 +23,7 @@
 		</div>
 	</div>
 
-	<p><b>Company Info &amp; History</b></p>
+	<p><b>${'companyinfo' @ i18n, locale=footerMCMUse.locale}</b></p>
 	<div data-sly-list="${footerMCMUse.companyInfo}">
 		<div>
 			<a href="${item.linkUrl}"
