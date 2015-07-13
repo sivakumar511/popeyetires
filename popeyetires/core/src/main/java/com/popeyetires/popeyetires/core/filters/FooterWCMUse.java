@@ -48,6 +48,7 @@ public class FooterWCMUse extends WCMUse {
 			Property prop = null;
 			Footer footer = null;
 			Node currentNode = getResource().adaptTo(Node.class);
+			System.out.println("currentNode :: "+currentNode);
 			if (currentNode.hasProperty("tiresbyvehicle")) {
 				prop = currentNode.getProperty("tiresbyvehicle");
 
@@ -189,7 +190,6 @@ public class FooterWCMUse extends WCMUse {
 				logger.info("tiresByVehicles is empty");
 			}
 
-			logger.info(tiresByVehicles.toString());
 			sampleText = "Trimurthy";
 		} catch (Exception ex) {
 			ex.printStackTrace();

@@ -6,8 +6,6 @@ import java.io.PrintWriter;
 
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
-import javax.jcr.PropertyIterator;
-import javax.jcr.Property;
 import javax.jcr.Session;
 import javax.jcr.SimpleCredentials;
 import javax.jcr.query.Query;
@@ -16,7 +14,6 @@ import javax.jcr.query.QueryResult;
 
 import org.apache.felix.scr.annotations.Component;
 import org.apache.felix.scr.annotations.Properties;
-
 import org.apache.felix.scr.annotations.Reference;
 import org.apache.felix.scr.annotations.Service;
 import org.apache.sling.api.SlingHttpServletRequest;
@@ -27,7 +24,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 
-@Component(immediate = true, metatype = true, label = "MMY Data Servlet", description = "Provides access to the MMY data located in the JCR.")
+@Component(immediate = true, metatype = true, label = "MMY Data Servlet", description = "Provides access to the popeye tires located in the JCR.")
 @Service
 @Properties({
 		@org.apache.felix.scr.annotations.Property(name = "sling.servlet.paths", value = { "/tim/productMap" }, label = "Servlet Path"),
