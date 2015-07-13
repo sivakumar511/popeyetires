@@ -95,5 +95,21 @@
         jcr:primaryType="sling:MessageEntry"
         sling:key="Light/Medium Truck"
         sling:message="Camionnette/camion mi-lourd"/>
-       
+        
+    <tires_by_vehicle
+        jcr:primaryType="sling:MessageEntry"
+        sling:key="Tires By Vehicle"
+        sling:message="Pneus en véhicule"/>
+    <tires_by_type
+        jcr:primaryType="sling:MessageEntry"
+        sling:key="Tires By Type"
+        sling:message="Par type de pneus"/>
+    <support
+        jcr:primaryType="sling:MessageEntry"
+        sling:key="Support"
+        sling:message="Soutien"/>
+    <company_info
+        jcr:primaryType="sling:MessageEntry"
+        sling:key="Company Info"
+        sling:message="Infos Société"/>
 </jcr:root>

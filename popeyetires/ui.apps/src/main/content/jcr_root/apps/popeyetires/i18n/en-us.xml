@@ -87,5 +87,22 @@
         jcr:mixinTypes="[sling:Message]"
         jcr:primaryType="sling:MessageEntry"
         sling:message="Performance"/>
+
+    <tires_by_vehicle
+        jcr:primaryType="sling:MessageEntry"
+        sling:key="Tires By Vehicle"
+        sling:message="Tires By Vehicle"/>
+    <tires_by_type
+        jcr:primaryType="sling:MessageEntry"
+        sling:key="Tires By Type"
+        sling:message="Tires By Type"/>
+    <support
+        jcr:primaryType="sling:MessageEntry"
+        sling:key="Support"
+        sling:message="Support"/>
+    <company_info
+        jcr:primaryType="sling:MessageEntry"
+        sling:key="Company Info"
+        sling:message="Company Info"/>
         
 </jcr:root>

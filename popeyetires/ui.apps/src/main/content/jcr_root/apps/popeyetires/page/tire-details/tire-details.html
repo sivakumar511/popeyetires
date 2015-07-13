@@ -17,7 +17,6 @@
     <meta property="og:title" content="${currentPage.title}">
     <meta property="og:type" content="">
     <meta property="og:url" content="${currentPage.path}">
-    
 	<clientlib data-sly-call="${clientLib.all @ categories=['jquery', 'cq:foosballclientslibs', 'popeyetires.all']}" data-sly-unwrap/>
   </head>
   <body>
@@ -31,7 +30,7 @@
      	<div data-sly-resource="${ @path='MainParagraph',resourceType='/libs/foundation/components/parsys'}" data-sly-unwrap></div>
     </div>
     <div id="footer">
-    	<div data-sly-resource="${ @path='footer', resourceType='/apps/popeyetires/components/content/footer'}" data-sly-unwrap></div>
+    	<div data-sly-resource="${'/content/popeyetires/en/home/jcr:content/footer' @ wcmmode='disabled'}" data-sly-unwrap></div>
     </div>
   </body>
 </html>
