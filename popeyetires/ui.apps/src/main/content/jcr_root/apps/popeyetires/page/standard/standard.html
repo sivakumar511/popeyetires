@@ -24,7 +24,7 @@
   	<div id="header" data-sly-use.util="${'com.popeyetires.popeyetires.core.utils.LocaleUtil'}">
 		<div data-sly-include="/apps/foosball/champs/global.jsp" data-sly-unwrap></div>
 	    <div data-sly-include="/apps/foosball/champs/init.jsp" data-sly-unwrap></div>test::::${util.pagePath}
-	   <div data-sly-resource="${'{0}{1}{2}' @ format=['/content/Popeye',util.pagePath,'index/jcr:content/sidenav'],wcmmode = 'disabled'}"></div>
+	   	<div data-sly-resource="${'{0}{1}{2}' @ format=['/content/Popeye',util.pagePath,'index/jcr:content/sidenav'], wcmmode = 'disabled'}"></div>
     </div>
     <div id="main">
     	<div data-sly-resource="${ @path='menu', resourceType='/apps/popeyetires/components/content/menu'}" data-sly-unwrap></div>

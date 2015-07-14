@@ -27,7 +27,7 @@ import com.day.commons.datasource.poolservice.DataSourcePool;
  */
 @Component(label = "TireDetails Scheduled Service", description = "TireDetails scheduled service", immediate = true, metatype = true)
 @Properties({
-	@Property(label = "TireDetails Scheduled Service", description = "Run this service every day @ 12 get all the tire details.", name = "scheduler.expression", value = "0 15 13 * * ?")
+	@Property(label = "TireDetails Scheduled Service", description = "Run this service every day @ 12 get all the tire details.", name = "scheduler.expression", value = "0 18 14 * * ?")
 })
 @Service
 public class TireDetailsSchedulerService implements Runnable {
