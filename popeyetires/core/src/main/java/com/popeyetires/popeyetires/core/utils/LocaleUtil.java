@@ -12,6 +12,7 @@ public class LocaleUtil extends WCMUse{
 	private Page page;
     private String path;
     private String locale = "";
+    private String pagePath = "";
 	@Override
 	 public void activate() {
 	  logger.info("in actiave");
@@ -21,13 +22,16 @@ public class LocaleUtil extends WCMUse{
 	        logger.info("in path:::::>>>"+ path); 
 	        if(path.contains("/en/us/")) {
 	            locale = "en-us";
+	            pagePath = "/en/us/";
 	        }
 	        if(path.contains("/fr/ca/")) {
 	            locale = "fr-ca";
+	            pagePath = "/fr/ca/";
 	        }
 
 	        else{
 	        	locale = "en-us";
+	        	pagePath = "/en/us/";
 	        }
           logger.info("in menu:::::>>>"+ locale);
 	  }
@@ -38,5 +42,9 @@ public class LocaleUtil extends WCMUse{
 	
 	public String getLocale(){
 		return locale;
+	}
+	
+	public String getPagePath(){
+		return pagePath;
 	}
 }
