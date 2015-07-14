@@ -127,5 +127,20 @@
             <groupId>junit-addons</groupId>
             <artifactId>junit-addons</artifactId>
         </dependency>
+        <dependency>
+				<groupId>mysql</groupId>
+				<artifactId>mysql-connector-java</artifactId>
+				<version>5.1.35</version>
+			</dependency>   
+			<dependency>
+  			<groupId>com.day.commons</groupId>
+  			<artifactId>day.commons.datasource.jdbcpool</artifactId>
+  			<version>1.0.22</version>
+		</dependency>
+		<dependency>
+    		<groupId>com.day.commons</groupId>
+    		<artifactId>day.commons.datasource.poolservice</artifactId>
+    		<version>1.0.10</version>
+		</dependency> 
     </dependencies>
 </project>
