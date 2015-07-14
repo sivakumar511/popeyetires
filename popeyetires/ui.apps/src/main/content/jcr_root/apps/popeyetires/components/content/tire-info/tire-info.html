@@ -1,0 +1,8 @@
+<div data-sly-use.tire="${'com.popeyetires.popeyetires.core.filters.TireInfoWcmUse'}">
+	<img src="${tire.tireInfo.tireImage}" alt="${tire.tireInfo.title}" style="float:left;"/>
+	<h4>${tire.tireInfo.title}</h4>
+    <p>${tire.tireInfo.description}</p>
+    <p>${'Tread Depth' @ i18n, locale=tire.locale}: ${tire.tireInfo.treadDepth}</p>
+    <p>${'Warranty' @ i18n, locale=tire.locale}: ${tire.tireInfo.warranty}</p>
+    <p>${'Price' @ i18n, locale=tire.locale}: ${tire.tireInfo.price}</p>
+</div>

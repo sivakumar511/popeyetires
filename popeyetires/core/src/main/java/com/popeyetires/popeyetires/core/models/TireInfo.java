@@ -1,13 +1,84 @@
 package com.popeyetires.popeyetires.core.models;
 
 public class TireInfo {
+	private String material;
+	private String descriptionEn;
+	private String descriptionFr;
 	private String title;
 	private String description;
 	private String treadDepth;
-	private String warranty;
+	private String warrantyInKM;
+	private String warrantyInMiles;
+	private String fullSize;
+	private boolean snowTire;
+	private boolean winterTire;
 	private String price;
 	private String tireImage;
 	
+	public String getMaterial() {
+		return material;
+	}
+
+	public void setMaterial(String material) {
+		this.material = material;
+	}
+
+	public String getDescriptionEn() {
+		return descriptionEn;
+	}
+
+	public void setDescriptionEn(String descriptionEn) {
+		this.descriptionEn = descriptionEn;
+	}
+
+	public String getDescriptionFr() {
+		return descriptionFr;
+	}
+
+	public void setDescriptionFr(String descriptionFr) {
+		this.descriptionFr = descriptionFr;
+	}
+
+	public String getWarrantyInKM() {
+		return warrantyInKM;
+	}
+
+	public void setWarrantyInKM(String warrantyInKM) {
+		this.warrantyInKM = warrantyInKM;
+	}
+
+	public String getWarrantyInMiles() {
+		return warrantyInMiles;
+	}
+
+	public void setWarrantyInMiles(String warrantyInMiles) {
+		this.warrantyInMiles = warrantyInMiles;
+	}
+
+	public String getFullSize() {
+		return fullSize;
+	}
+
+	public void setFullSize(String fullSize) {
+		this.fullSize = fullSize;
+	}
+
+	public boolean isSnowTire() {
+		return snowTire;
+	}
+
+	public void setSnowTire(boolean snowTire) {
+		this.snowTire = snowTire;
+	}
+
+	public boolean isWinterTire() {
+		return winterTire;
+	}
+
+	public void setWinterTire(boolean winterTire) {
+		this.winterTire = winterTire;
+	}
+
 	public String getTitle() {
 		return title;
 	}
@@ -32,14 +103,6 @@ public class TireInfo {
 		this.treadDepth = treadDepth;
 	}
 	
-	public String getWarranty() {
-		return warranty;
-	}
-	
-	public void setWarranty(String warranty) {
-		this.warranty = warranty;
-	}
-	
 	public String getPrice() {
 		return price;
 	}
@@ -57,6 +120,6 @@ public class TireInfo {
 	}
 	
 	public String toString() {
-		return "title=[" + title + "]description=[" + description + "]treadDepth=[" + treadDepth + "]warranty=[" + warranty + "]price=[" + price + "]";
+		return "title=[" + title + "]description=[" + description + "]treadDepth=[" + treadDepth + "]warranty=[" + warrantyInKM + "]price=[" + price + "]";
 	}
 }
