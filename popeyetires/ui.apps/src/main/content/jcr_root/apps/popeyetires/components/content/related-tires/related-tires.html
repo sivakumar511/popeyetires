@@ -1,3 +1,13 @@
- <div>
-	
+<h2>Related Tire Information</h2>
+<div data-sly-use.tires="${'com.popeyetires.popeyetires.core.filters.RelatedTiresWcmUse'}">
+	<div data-sly-list="${tires.relatedTireInfo}" data-sly-unwrap>
+		<div class="relatedTire">
+			<img src="${item.tireImage}" alt="${item.title}" />
+			<h4>${item.title}</h4>
+			<p>${item.descriptionEn}</p>
+			<p>${'Tread Depth' @ i18n, locale=tire.locale}: ${item.treadDepth}</p>
+			<p>${'Warranty' @ i18n, locale=tire.locale}: ${item.warrantyInKM}</p>
+			<p>${'Price' @ i18n, locale=tire.locale}: ${item.price}</p>
+		</div>
+	</div>
 </div>
