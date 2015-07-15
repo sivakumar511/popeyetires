@@ -112,16 +112,18 @@ public class TireServiceImpl implements TireService {
 		QueryResult result2 = null;
 		try {
 			
-			tireInfo = getTireInformation(tireName);
+			//tireInfo = getTireInformation(tireName); // title_fullsize
 			
-			if(tireInfo!=null){
+			if(tireName!=null){
+				
+				String[] str = tireName.split("_"); 
 			
 				session = this.repository.login(new SimpleCredentials("admin", "admin".toCharArray()));
 				
 				QueryManager queryManager = session.getWorkspace().getQueryManager();
 				
 				 query = queryManager.createQuery("SELECT * FROM [nt:unstructured] AS s WHERE ISDESCENDANTNODE(s,'/content/PopeyeTires/jcr:content') "
-						      + "AND NAME() NOT LIKE '"+tireName+"' AND s.fullSize= '"+tireInfo.getFullSize()+"' "
+						      + "AND NAME() NOT LIKE '"+tireName+"' AND s.fullSize= '"+str[1].toString()+"' "
 						      + "AND ((s.showTire='Y' AND s.winterTire='Y') or (s.showTire='Y' AND s.winterTire='N') or (s.showTire='N' AND s.winterTire='N'))" , Query.JCR_SQL2);
 				query.setLimit(3);
 				QueryResult result = query.execute();
@@ -153,7 +155,6 @@ public class TireServiceImpl implements TireService {
 				}
 				
 				if(count<3){
-					
 					query = queryManager.createQuery("SELECT * FROM [nt:unstructured] AS s WHERE ISDESCENDANTNODE(s,'/content/PopeyeTires/jcr:content') "
 						      + "AND NAME() NOT LIKE '"+tireName+"'" , Query.JCR_SQL2);
 					query.setLimit(3-count);
