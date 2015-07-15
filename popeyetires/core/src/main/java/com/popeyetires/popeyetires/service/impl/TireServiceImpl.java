@@ -38,6 +38,8 @@ public class TireServiceImpl implements TireService {
 
 	@Override
 	public TireInfo getTireInformation(String tireName) {
+		
+		TireInfo tireInfo = null;
 		try {
 			session = this.repository.login(new SimpleCredentials("admin", "admin".toCharArray()));
 			
@@ -48,7 +50,7 @@ public class TireServiceImpl implements TireService {
 			QueryResult result = query.execute();
 			
 			NodeIterator nodeIterator = result.getNodes();
-			TireInfo tireInfo = null;
+			
 			while(nodeIterator.hasNext()) {
 				tireInfo = new TireInfo();
 				Node tireNode = nodeIterator.nextNode();
@@ -67,6 +69,10 @@ public class TireServiceImpl implements TireService {
 						tireInfo.setWarrantyInMiles(prop.getString());
 					} else if(prop.getName().equals("price")) {
 						tireInfo.setPrice(prop.getString());
+					}else if(prop.getName().equals("snowTire")) {
+						tireInfo.setSnowTire(prop.getBoolean());
+					}else if(prop.getName().equals("winterTire")) {
+						tireInfo.setWinterTire(prop.getBoolean());
 					}
 				}
 			}
@@ -78,13 +84,13 @@ public class TireServiceImpl implements TireService {
 			//tireInfo.setTreadDepth("10.3");
 			//tireInfo.setWarranty("18000");
 			//tireInfo.setPrice("110.2");
-			return tireInfo;
+			
 		} catch (LoginException e) {
 			e.printStackTrace();
 		} catch (RepositoryException e) {
 			e.printStackTrace();
 		}
-		return null;
+		return tireInfo;
 	}
 
 	@Override
@@ -99,48 +105,98 @@ public class TireServiceImpl implements TireService {
 
 	@Override
 	public List<TireInfo> getRelatedTireInformation(String tireName) {
+		List<TireInfo>  tireInfos = null;
+		TireInfo tireInfo = null;
+		int count = 0;
+		Query query = null;
+		QueryResult result2 = null;
 		try {
-			session = this.repository.login(new SimpleCredentials("admin", "admin".toCharArray()));
 			
-			QueryManager queryManager = session.getWorkspace().getQueryManager();
-
-			Query query = queryManager.createQuery("SELECT * FROM [nt:unstructured] AS s WHERE ISDESCENDANTNODE(s,'/content/PopeyeTires/jcr:content') AND NAME() = '" + tireName + "'", Query.JCR_SQL2);
+			tireInfo = getTireInformation(tireName);
 			
-			QueryResult result = query.execute();
+			if(tireInfo!=null){
 			
-			NodeIterator nodeIterator = result.getNodes();
-			TireInfo tireInfo = null;
-			while(nodeIterator.hasNext()) {
-				tireInfo = new TireInfo();
-				Node tireNode = nodeIterator.nextNode();
-				PropertyIterator propIter = tireNode.getProperties();
-				while(propIter.hasNext()) {
-					Property prop = propIter.nextProperty();
-					if(prop.getName().equals("title")) {
-						tireInfo.setTitle(prop.getString());
-					} else if(prop.getName().equals("description")) {
-						tireInfo.setDescription(prop.getString());
-					} else if(prop.getName().equals("treadDepth")) {
-						tireInfo.setTreadDepth(prop.getString());
-					} else if(prop.getName().equals("warrantyInKM")) {
-						tireInfo.setWarrantyInKM(prop.getString());
-					} else if(prop.getName().equals("warrantyInMiles")) {
-						tireInfo.setWarrantyInMiles(prop.getString());
-					} else if(prop.getName().equals("price")) {
-						tireInfo.setPrice(prop.getString());
-					} else if(prop.getName().equals("fullSize")) {
-						
+				session = this.repository.login(new SimpleCredentials("admin", "admin".toCharArray()));
+				
+				QueryManager queryManager = session.getWorkspace().getQueryManager();
+				
+				 query = queryManager.createQuery("SELECT * FROM [nt:unstructured] AS s WHERE ISDESCENDANTNODE(s,'/content/PopeyeTires/jcr:content') "
+						      + "AND NAME() NOT LIKE '"+tireName+"' AND s.fullSize= '"+tireInfo.getFullSize()+"' "
+						      + "AND ((s.showTire='Y' AND s.winterTire='Y') or (s.showTire='Y' AND s.winterTire='N') or (s.showTire='N' AND s.winterTire='N'))" , Query.JCR_SQL2);
+				query.setLimit(3);
+				QueryResult result = query.execute();
+				
+				 count = (int)result.getRows().getSize();
+				
+				NodeIterator nodeIterator = result.getNodes();
+				//TireInfo tireInfo = null;
+				while(nodeIterator.hasNext()) {
+					tireInfo = new TireInfo();
+					Node tireNode = nodeIterator.nextNode();
+					PropertyIterator propIter = tireNode.getProperties();
+					while(propIter.hasNext()) {
+						Property prop = propIter.nextProperty();
+						if(prop.getName().equals("title")) {
+							tireInfo.setTitle(prop.getString());
+						} else if(prop.getName().equals("description")) {
+							tireInfo.setDescription(prop.getString());
+						} else if(prop.getName().equals("treadDepth")) {
+							tireInfo.setTreadDepth(prop.getString());
+						} else if(prop.getName().equals("warrantyInKM")) {
+							tireInfo.setWarrantyInKM(prop.getString());
+						}else if(prop.getName().equals("warrantyInMiles")) {
+							tireInfo.setWarrantyInMiles(prop.getString());
+						} else if(prop.getName().equals("price")) {
+							tireInfo.setPrice(prop.getString());
+						}
 					}
 				}
+				
+				if(count<3){
+					
+					query = queryManager.createQuery("SELECT * FROM [nt:unstructured] AS s WHERE ISDESCENDANTNODE(s,'/content/PopeyeTires/jcr:content') "
+						      + "AND NAME() NOT LIKE '"+tireName+"'" , Query.JCR_SQL2);
+					query.setLimit(3-count);
+					 result2 = query.execute();
+					 
+					  nodeIterator = result2.getNodes();
+						//TireInfo tireInfo = null;
+						while(nodeIterator.hasNext()) {
+							tireInfo = new TireInfo();
+							Node tireNode = nodeIterator.nextNode();
+							PropertyIterator propIter = tireNode.getProperties();
+							while(propIter.hasNext()) {
+								Property prop = propIter.nextProperty();
+								if(prop.getName().equals("title")) {
+									tireInfo.setTitle(prop.getString());
+								} else if(prop.getName().equals("description")) {
+									tireInfo.setDescription(prop.getString());
+								} else if(prop.getName().equals("treadDepth")) {
+									tireInfo.setTreadDepth(prop.getString());
+								} else if(prop.getName().equals("warrantyInKM")) {
+									tireInfo.setWarrantyInKM(prop.getString());
+								}else if(prop.getName().equals("warrantyInMiles")) {
+									tireInfo.setWarrantyInMiles(prop.getString());
+								} else if(prop.getName().equals("price")) {
+									tireInfo.setPrice(prop.getString());
+								}
+							}
+						}
+				}
+				
 			}
 			
-			query = queryManager.createQuery("SELECT * FROM [nt:unstructured] AS s WHERE ISDESCENDANTNODE(s,'/content/PopeyeTires/jcr:content') AND s.", Query.JCR_SQL2);
+			logger.info("Tire Information :" + tireInfo);
 			
 		} catch (LoginException e) {
 			e.printStackTrace();
 		} catch (RepositoryException e) {
 			e.printStackTrace();
 		}
-		return null;
+		
+		return tireInfos;
 	}
+	
+	
+	
 }
