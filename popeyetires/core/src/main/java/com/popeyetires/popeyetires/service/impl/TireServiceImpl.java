@@ -104,11 +104,6 @@ public class TireServiceImpl implements TireService {
 	}
 
 	@Override
-	public List<TireInfo> getRelatedTireInformation() {
-		return null;
-	}
-
-	@Override
 	public List<TireInfo> getRelatedTireInformation(String tireName) {
 		List<TireInfo>  tireInfos = null;
 		TireInfo tireInfo = null;
