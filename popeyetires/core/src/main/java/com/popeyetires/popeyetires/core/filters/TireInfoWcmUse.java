@@ -24,8 +24,9 @@ public class TireInfoWcmUse extends WCMUse {
 		logger.info("Tire Name :" + tireName);
 		TireService tireService = getSlingScriptHelper().getService(TireService.class);
 		this.tireInfo = tireService.getTireInformation(tireName);
-		logger.info("/content/dam/popeyetires/" + tireName + ".jpg");
-		tireInfo.setTireImage("/content/dam/popeyetires/" + tireName + ".jpg");
+		logger.info("/content/dam/bst/tires/models/" + tireInfo.getTitle().toLowerCase().replaceAll(" ", "-").replaceAll("/", "-") + "/hero.jpg");
+		// Pointing the Image location based on the title of the image
+		tireInfo.setTireImage("/content/dam/bst/tires/models/" + tireInfo.getTitle().toLowerCase().replaceAll(" ", "-").replaceAll("/", "-") + "/hero.png");
 		// Get the details from JCR based on the Page Name
 	}
 	

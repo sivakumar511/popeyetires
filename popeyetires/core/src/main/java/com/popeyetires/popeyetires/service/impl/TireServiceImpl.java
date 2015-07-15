@@ -59,7 +59,7 @@ public class TireServiceImpl implements TireService {
 					Property prop = propIter.nextProperty();
 					if(prop.getName().equals("title")) {
 						tireInfo.setTitle(prop.getString());
-					} else if(prop.getName().equals("description")) {
+					} else if(prop.getName().equals("descriptionEn")) {
 						tireInfo.setDescription(prop.getString());
 					} else if(prop.getName().equals("treadDepth")) {
 						tireInfo.setTreadDepth(prop.getString());
@@ -95,12 +95,12 @@ public class TireServiceImpl implements TireService {
 
 	@Override
 	public HashMap<String, String> getTireFeaturesInformation(String tireName) {
-		return null;
-	}
-
-	@Override
-	public List<TireInfo> getRelatedTireInformation() {
-		return null;
+		HashMap<String, String> tireFeatures = new HashMap<String, String>();
+		tireFeatures.put("dryPerformance", "Best");
+		tireFeatures.put("wetPerformance", "Better");
+		tireFeatures.put("rideComfort", "Best");
+		tireFeatures.put("season", "All Season");
+		return tireFeatures;
 	}
 
 	@Override

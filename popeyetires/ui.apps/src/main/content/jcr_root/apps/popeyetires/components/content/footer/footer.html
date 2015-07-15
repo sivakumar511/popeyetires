@@ -1,40 +1,32 @@
-<div data-sly-use.footerMCMUse="${'com.popeyetires.popeyetires.core.filters.FooterWCMUse'}" data-sly-unwrap>
-	<p><b>${'tiresbyvehicle' @ i18n, locale=footerMCMUse.locale}</b></p>
-	<div data-sly-list="${footerMCMUse.tiresByVehicles}">
-		<div>
-			<a href="${item.linkUrl}"
-				target="${item.newTab ? '_blank' : '_self'}">${item.linkText}</a>
-		</div>
-	</div>
+<div data-sly-use.footerMCMUse="${'com.popeyetires.popeyetires.core.filters.FooterWCMUse'}">
+	<ul style="width: 200px; float:left;"><li><b>${'Tires By Vehicle' @ i18n, locale=footerMCMUse.locale}</b></li>
+	<li data-sly-list="${footerMCMUse.tiresByVehicles}" >
+		<a href="${item.linkUrl}" target="${item.newTab ? '_blank' : '_self'}">${item.linkText}</a>
+	</li>
+    </ul>
 
-	<p><b>${'tiresbytype' @ i18n, locale=footerMCMUse.locale}</b></p>
-	<div data-sly-list="${footerMCMUse.tiresByType}">
-		<div>
-			<a href="${item.linkUrl}"
-				target="${item.newTab ? '_blank' : '_self'}">${item.linkText}</a>
-		</div>
-	</div>
+	<ul style="width: 200px; float:left;"><li><b>${'Tires By Type' @ i18n, locale=footerMCMUse.locale}</b></li>
+	<li data-sly-list="${footerMCMUse.tiresByType}">
+    	<a href="${item.linkUrl}" target="${item.newTab ? '_blank' : '_self'}">${item.linkText}</a>
+	</li>
+    </ul>
 
-	<p><b>${'support' @ i18n, locale=footerMCMUse.locale}</b></p>
-	<div data-sly-list="${footerMCMUse.support}">
-		<div>
-			<a href="${item.linkUrl}"
-				target="${item.newTab ? '_blank' : '_self'}">${item.linkText}</a>
-		</div>
-	</div>
+	<ul style="width: 200px; float:left;"><li><b>${'Support' @ i18n, locale=footerMCMUse.locale}</b><li>
+		<li data-sly-list="${footerMCMUse.support}">
+			<a href="${item.linkUrl}" target="${item.newTab ? '_blank' : '_self'}">${item.linkText}</a>
+		</li>
+    </ul>
 
-	<p><b>${'companyinfo' @ i18n, locale=footerMCMUse.locale}</b></p>
-	<div data-sly-list="${footerMCMUse.companyInfo}">
-		<div>
-			<a href="${item.linkUrl}"
-				target="${item.newTab ? '_blank' : '_self'}">${item.linkText}</a>
-		</div>
-	</div>
+	<ul style="width: 200px; float:left;"><li><b>${'Company Info' @ i18n, locale=footerMCMUse.locale}</b></li>
+		<li data-sly-list="${footerMCMUse.companyInfo}">
+			<a href="${item.linkUrl}" target="${item.newTab ? '_blank' : '_self'}">${item.linkText}</a>
+		</li>
+	</ul>
 </div>
 
 
 
-<div class="bottom">
+<div class="bottom" style="clear: left;">
 	<!-- Social Icons -->
 	<ul class="icons">
 		<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
@@ -48,6 +40,5 @@
 	<li>&copy; 2015. Popeye Tires Inc.</li>
 </ul>
 <div class="bottom-logo">
-	<img src="/content/dam/popeyetires/bridgestone_bottom_logo.png" alt="Bridgestone" />
+	<img src="/content/dam/popeyetires/bridgestone_bottom_logo.png" alt="Bridgestone"/>
 </div>
-
