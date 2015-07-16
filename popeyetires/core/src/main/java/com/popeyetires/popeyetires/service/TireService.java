@@ -10,7 +10,5 @@ public interface TireService {
 
 	public HashMap<String, String> getTireFeaturesInformation(String tireName);
 	
-	public List<TireInfo> getRelatedTireInformation();
-
 	public List<TireInfo> getRelatedTireInformation(String tireName);
 }

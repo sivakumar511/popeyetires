@@ -30,4 +30,8 @@ public class TireFeaturesWcmUse extends WCMUse {
 	public HashMap<String, String> getTireFeatures() {
 		return tireFeatures;
 	}
+	
+	public String getLocale() {
+		return locale;
+	}
 }
