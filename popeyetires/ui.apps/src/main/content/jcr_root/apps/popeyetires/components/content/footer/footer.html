@@ -1,26 +1,34 @@
 <div data-sly-use.footerMCMUse="${'com.popeyetires.popeyetires.core.filters.FooterWCMUse'}">
 	<ul style="width: 200px; float:left;"><li><b>${'Tires By Vehicle' @ i18n, locale=footerMCMUse.locale}</b></li>
-	<li data-sly-list="${footerMCMUse.tiresByVehicles}" >
-		<a href="${item.linkUrl}" target="${item.newTab ? '_blank' : '_self'}">${item.linkText}</a>
-	</li>
+    	<div data-sly-list="${footerMCMUse.tiresByVehicles}" data-sly-unwrap>
+			<li>
+				<a href="${item.linkUrl}" target="${item.newTab ? '_blank' : '_self'}">${item.linkText}</a>
+			</li>
+        </div>
     </ul>
 
 	<ul style="width: 200px; float:left;"><li><b>${'Tires By Type' @ i18n, locale=footerMCMUse.locale}</b></li>
-	<li data-sly-list="${footerMCMUse.tiresByType}">
-    	<a href="${item.linkUrl}" target="${item.newTab ? '_blank' : '_self'}">${item.linkText}</a>
-	</li>
+    	<div data-sly-list="${footerMCMUse.tiresByType}" data-sly-unwrap>
+			<li>
+    			<a href="${item.linkUrl}" target="${item.newTab ? '_blank' : '_self'}">${item.linkText}</a>
+			</li>
+        </div>
     </ul>
 
 	<ul style="width: 200px; float:left;"><li><b>${'Support' @ i18n, locale=footerMCMUse.locale}</b><li>
-		<li data-sly-list="${footerMCMUse.support}">
-			<a href="${item.linkUrl}" target="${item.newTab ? '_blank' : '_self'}">${item.linkText}</a>
-		</li>
+    	<div data-sly-list="${footerMCMUse.support}" data-sly-unwrap>
+			<li>
+				<a href="${item.linkUrl}" target="${item.newTab ? '_blank' : '_self'}">${item.linkText}</a>
+			</li>
+        </div>
     </ul>
 
 	<ul style="width: 200px; float:left;"><li><b>${'Company Info' @ i18n, locale=footerMCMUse.locale}</b></li>
-		<li data-sly-list="${footerMCMUse.companyInfo}">
-			<a href="${item.linkUrl}" target="${item.newTab ? '_blank' : '_self'}">${item.linkText}</a>
-		</li>
+    	<div data-sly-list="${footerMCMUse.companyInfo}" data-sly-unwrap>
+			<li>
+				<a href="${item.linkUrl}" target="${item.newTab ? '_blank' : '_self'}">${item.linkText}</a>
+			</li>
+        </div>
 	</ul>
 </div>
 
@@ -42,3 +50,4 @@
 <div class="bottom-logo">
 	<img src="/content/dam/popeyetires/bridgestone_bottom_logo.png" alt="Bridgestone"/>
 </div>
+

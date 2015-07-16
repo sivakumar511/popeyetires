@@ -61,7 +61,7 @@
         sling:message="Hiver"/>
     <all_season
         jcr:primaryType="sling:MessageEntry"
-        sling:key="allseason"
+        sling:key="All Season"
         sling:message="Toutes-saisons"/>
     <performance
         jcr:primaryType="sling:MessageEntry"
@@ -94,7 +94,7 @@
     <support
         jcr:primaryType="sling:MessageEntry"
         sling:key="Support"
-        sling:message="soutien"/>
+        sling:message="Soutien"/>
     <company_info
         jcr:primaryType="sling:MessageEntry"
         sling:key="Company Info"
@@ -115,4 +115,24 @@
         jcr:primaryType="sling:MessageEntry"
         sling:key="snow"
         sling:message="Neige"/>
+    <best
+        jcr:primaryType="sling:MessageEntry"
+        sling:key="Best"
+        sling:message="Meilleur"/>
+    <better
+        jcr:primaryType="sling:MessageEntry"
+        sling:key="Better"
+        sling:message="Mieux"/>
+    <season
+        jcr:primaryType="sling:MessageEntry"
+        sling:key="Season"
+        sling:message="Saison"/>
+    <tire_features
+        jcr:primaryType="sling:MessageEntry"
+        sling:key="Tire Features"
+        sling:message="Caractéristiques Tire"/>
+    <related_tire_information
+        jcr:primaryType="sling:MessageEntry"
+        sling:key="Related Tire Information"
+        sling:message="Renseignements connexes Tire"/>
 </jcr:root>
