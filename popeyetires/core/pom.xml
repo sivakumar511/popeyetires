@@ -141,6 +141,10 @@
     		<groupId>com.day.commons</groupId>
     		<artifactId>day.commons.datasource.poolservice</artifactId>
     		<version>1.0.10</version>
-		</dependency> 
+		</dependency>
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+		</dependency>
     </dependencies>
 </project>
