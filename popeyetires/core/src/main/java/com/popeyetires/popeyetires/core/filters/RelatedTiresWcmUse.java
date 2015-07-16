@@ -15,11 +15,20 @@ import com.adobe.cq.sightly.WCMUse;
 import com.popeyetires.popeyetires.core.models.TireInfo;
 
 public class RelatedTiresWcmUse extends WCMUse {
-	private List<TireInfo> relatedTireInfo;
 	private final Logger logger = LoggerFactory.getLogger(RelatedTiresWcmUse.class);
+	
+	private List<TireInfo> relatedTireInfo;
+	private String locale;
+	private String enLang = "en-us";
+	private String frLang = "fr-ca";
 
 	@Override
 	public void activate() throws Exception {
+		if(getCurrentPage().getPath().contains("/en/")) {
+			locale = "en-us";
+		} else if(getCurrentPage().getPath().contains("/fr/")) {
+			locale = "fr-ca";
+		}
 		try {
 			Property prop = null;
 			TireInfo tireInfo = null;
@@ -45,8 +54,8 @@ public class RelatedTiresWcmUse extends WCMUse {
 						productJson = new JSONObject(val.getString());
 						logger.info("Tire JSON :" + productJson.getString("title"));
 						tireInfo = new TireInfo();
-						logger.info("TireInfo :" + tireInfo);
 						tireInfo.setDescriptionEn(productJson.getString("descriptionEn"));
+						tireInfo.setDescriptionFr(productJson.getString("descriptionFr"));
 						tireInfo.setTitle(productJson.getString("title"));
 						tireInfo.setTreadDepth(productJson.getString("treadDepth"));
 						tireInfo.setWarrantyInKM(productJson.getString("warrantyInKM"));
@@ -71,7 +80,19 @@ public class RelatedTiresWcmUse extends WCMUse {
 		}
 	}
 
-	public List<TireInfo> getRelateTireInfo() {
-		return this.relatedTireInfo;
+	public String getEnLang() {
+		return enLang;
+	}
+
+	public String getFrLang() {
+		return frLang;
+	}
+
+	public String getLocale() {
+		return locale;
+	}
+	
+	public List<TireInfo> getRelatedTireInfo() {
+		return relatedTireInfo;
 	}
 }

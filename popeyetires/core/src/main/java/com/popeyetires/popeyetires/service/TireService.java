@@ -1,7 +1,6 @@
 package com.popeyetires.popeyetires.service;
 
 import java.util.HashMap;
-import java.util.List;
 
 import com.popeyetires.popeyetires.core.models.TireInfo;
 
@@ -10,5 +9,5 @@ public interface TireService {
 
 	public HashMap<String, String> getTireFeaturesInformation(String tireName);
 	
-	public List<TireInfo> getRelatedTireInformation(String tireName);
+	public String[] getRelatedTireInformation(String tireName);
 }

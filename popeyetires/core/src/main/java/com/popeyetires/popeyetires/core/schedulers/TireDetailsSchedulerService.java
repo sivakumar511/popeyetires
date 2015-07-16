@@ -25,6 +25,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.day.commons.datasource.poolservice.DataSourcePool;
+import com.popeyetires.popeyetires.service.TireService;
 
 /**
  * @author supvatti
@@ -32,7 +33,7 @@ import com.day.commons.datasource.poolservice.DataSourcePool;
  */
 @Component(label = "TireDetails Scheduled Service", description = "TireDetails scheduled service", immediate = true, metatype = true)
 @Properties({
-	@Property(label = "TireDetails Scheduled Service", description = "Run this service every day @ 12 get all the tire details.", name = "scheduler.expression", value = "0 30 14 * * ?")
+	@Property(label = "TireDetails Scheduled Service", description = "Run this service every day @ 12 get all the tire details.", name = "scheduler.expression", value = "0 26 14 * * ?")
 })
 @Service
 public class TireDetailsSchedulerService implements Runnable {
@@ -43,6 +44,9 @@ public class TireDetailsSchedulerService implements Runnable {
 
 	@Reference
 	private DataSourcePool source;
+	
+	@Reference
+	private TireService service;
 
 	public void run() {
 
@@ -75,9 +79,9 @@ public class TireDetailsSchedulerService implements Runnable {
 			Node jcrContentNode = tires.getNode("jcr:content");
 			DecimalFormat df = new DecimalFormat("###.##");
 			while (rs.next()) {
-				if (!jcrContentNode.hasNode(rs.getString("title").toLowerCase().replaceAll("/", "-").replaceAll(" ", "-") + "_" + rs.getString("Full_Size").replaceAll(" ", "-").replaceAll("/", "-"))) {
+				if (!jcrContentNode.hasNode(rs.getString("title").toLowerCase().replaceAll("/", "").replaceAll(" ", "-") + "_" + rs.getString("Full_Size").replaceAll(" ", "-").replaceAll("/", "-"))) {
 					log.info(rs.getString("title").toLowerCase().replaceAll("/", "-").replaceAll(" ", "-") + "_" + rs.getString("Full_Size").replaceAll(" ", "-").replaceAll("/", "-"));
-					Node material = jcrContentNode.addNode(rs.getString("title").toLowerCase().replaceAll("/", "-").replaceAll(" ", "-") + "_" + rs.getString("Full_Size").replaceAll(" ", "-").replaceAll("/", "-"), "nt:unstructured");
+					Node material = jcrContentNode.addNode(rs.getString("title").toLowerCase().replaceAll("/", "").replaceAll(" ", "-") + "_" + rs.getString("Full_Size").replaceAll(" ", "-").replaceAll("/", "-"), "nt:unstructured");
 					log.info("Created post node :" + material.getName());
 					material.setProperty("material", rs.getString("Material"));
 					material.setProperty("descriptionEn", rs.getString("Description_EN"));
@@ -92,8 +96,8 @@ public class TireDetailsSchedulerService implements Runnable {
 					material.setProperty("price", df.format(Math.random() * 1000));
 				}
 				session.save();
-				log.info("Properties has been saved");
 			}
+			log.info("Properties has been saved");
 
 			// Code to create pages in content folder
 			QueryManager queryManager = session.getWorkspace().getQueryManager();
@@ -107,50 +111,59 @@ public class TireDetailsSchedulerService implements Runnable {
 			// logger.info("NOde size : " +result.getRows().getSize());
 
 			//This code is used to create tire pages
-			Node content_popeye = root.getNode("content/popeyetires/en");
+			Node contentPopeyeEn = root.getNode("content/popeyetires/en");
+			Node contentPopeyeFr = root.getNode("content/popeyetires/fr");
 
 			while (nodes.hasNext()) {
 				Node nextNode = nodes.nextNode();
 				log.info("Node Iteration : " + nextNode.getName());
-				Node tirePageNode = null;
-				if (!content_popeye.hasNode(nextNode.getName())) {
-					tirePageNode = 	content_popeye.addNode(nextNode.getName(), "cq:Page");
+				Node tireEnPageNode = null;
+				Node tireFrPageNode = null;
+				if (!contentPopeyeEn.hasNode(nextNode.getName())) {
+					tireEnPageNode = 	contentPopeyeEn.addNode(nextNode.getName(), "cq:Page");
 					log.info("Created cq:page");
 				} else {
-					tirePageNode = content_popeye.getNode(nextNode.getName());
+					tireEnPageNode = contentPopeyeEn.getNode(nextNode.getName());
 				}
-				String tireName = tirePageNode.getName().toUpperCase().replaceAll("-", " ");
+				
+				if (!contentPopeyeFr.hasNode(nextNode.getName())) {
+					tireFrPageNode = 	contentPopeyeFr.addNode(nextNode.getName(), "cq:Page");
+					log.info("Created cq:page");
+				} else {
+					tireFrPageNode = contentPopeyeFr.getNode(nextNode.getName());
+				}
+				
+				String tireName = tireEnPageNode.getName();
 
-				jcrContentNode = null;
-				if (!tirePageNode.hasNode("jcr:content")) {
-					jcrContentNode = tirePageNode.addNode("jcr:content", "cq:PageContent");
+				Node jcrEnContentNode = null;
+				Node jcrFrContentNode = null;
+				if (!tireEnPageNode.hasNode("jcr:content")) {
+					jcrEnContentNode = tireEnPageNode.addNode("jcr:content", "cq:PageContent");
+					jcrFrContentNode = tireFrPageNode.addNode("jcr:content", "cq:PageContent");
 
-					jcrContentNode.setProperty("jcr:title", tireName);
-					jcrContentNode.setProperty("sling:resourceType", "popeyetires/page/tire-details");
-					jcrContentNode.setProperty("cq:template", "/apps/popeyetires/templates/tire-details");
+					jcrEnContentNode.setProperty("jcr:title", tireName.toUpperCase());
+					jcrEnContentNode.setProperty("sling:resourceType", "popeyetires/page/tire-details");
+					jcrEnContentNode.setProperty("cq:template", "/apps/popeyetires/templates/tire-details");
+					
+					jcrFrContentNode.setProperty("jcr:title", tireName.toUpperCase());
+					jcrFrContentNode.setProperty("sling:resourceType", "popeyetires/page/tire-details");
+					jcrFrContentNode.setProperty("cq:template", "/apps/popeyetires/templates/tire-details");
 					log.info("Created jcr node");
 				} else {
-					jcrContentNode = tirePageNode.getNode("jcr:content");
+					jcrEnContentNode = tireEnPageNode.getNode("jcr:content");
+					jcrFrContentNode = tireFrPageNode.getNode("jcr:content");
 				}
 
-				Node relatedTiresNode = jcrContentNode.addNode("realted-tires", "nt:unstructured");
-				relatedTiresNode.setProperty("sling:resourceType", "popeyetires/components/content/related-tires");
-				//	JSONArray jsonArray = new JSONArray("[{}, {}]");
-				//material
-				//descriptionEn
-				//descriptionFr
-				//title
-				//description
-				//treadDepth
-				//warrantyInKM
-				//warrantyInMiles
-				//fullSize
-				//snowTire
-				//winterTire
-				//price
-				//tireImage
-
-				relatedTiresNode.setProperty("relatedTires", "[{}, {}]");
+				Node relatedTiresEnNode = jcrEnContentNode.addNode("RelatedTires", "nt:unstructured");
+				Node relatedTiresFrNode = jcrFrContentNode.addNode("RelatedTires", "nt:unstructured");
+				relatedTiresEnNode.setProperty("sling:resourceType", "popeyetires/components/content/related-tires");
+				relatedTiresFrNode.setProperty("sling:resourceType", "popeyetires/components/content/related-tires");
+				
+				String[] relatedTireInfo = service.getRelatedTireInformation(tireName);
+				
+				relatedTiresEnNode.setProperty("relatedTires", relatedTireInfo);
+				relatedTiresFrNode.setProperty("relatedTires", relatedTireInfo);
+				session.save();
 			}
 		} catch (SQLException e) {
 			log.error("SQL exception!!!!!!!!!" + e.getMessage(), e);

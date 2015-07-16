@@ -5,7 +5,6 @@ public class TireInfo {
 	private String descriptionEn;
 	private String descriptionFr;
 	private String title;
-	private String description;
 	private String treadDepth;
 	private String warrantyInKM;
 	private String warrantyInMiles;
@@ -87,14 +86,6 @@ public class TireInfo {
 		this.title = title;
 	}
 	
-	public String getDescription() {
-		return description;
-	}
-	
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
 	public String getTreadDepth() {
 		return treadDepth;
 	}
@@ -120,6 +111,6 @@ public class TireInfo {
 	}
 	
 	public String toString() {
-		return "title=[" + title + "]description=[" + description + "]treadDepth=[" + treadDepth + "]warranty=[" + warrantyInKM + "]price=[" + price + "]";
+		return "title=[" + title + "]description=[" + descriptionEn + "-" + descriptionFr + "]treadDepth=[" + treadDepth + "]warranty=[" + warrantyInKM + "-" + warrantyInMiles + "]price=[" + price + "]";
 	}
 }
